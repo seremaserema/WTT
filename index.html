@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>worldthrivetv</title>
+<meta name="description" content="アーティストの世界観を“映像”に落とし込むミュージックビデオ制作。撮影・編集まで一貫対応。">
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#0b1220;
+  --muted:#6f7a91;
+  --line:#e6e8ee;
+  --card:#f7f8fb;
+  --accent:#ad0090;
+  --accent2:#4f46e5;
+  --radius:18px;
+  --shadow:0 14px 36px rgba(16,24,40,.12);
+  --max:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  line-height:1.75;
+}
+a{text-decoration:none;color:inherit}
+.container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+/* ===== HEADER ===== */
+header{
+  position:sticky;top:0;z-index:30;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;
+}
+.logo{font-weight:900;letter-spacing:.02em}
+nav{display:flex;gap:10px}
+nav a{font-size:13px;color:var(--muted);padding:6px 10px;border-radius:999px}
+nav a:hover{background:var(--card);color:var(--text)}
+.btn{
+  padding:12px 16px;border-radius:999px;
+  background:var(--accent);color:#fff;font-weight:900;
+  box-shadow:var(--shadow);
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:560px;
+  display:flex;align-items:center;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url("images/hero.jpg") center/cover no-repeat;
+  filter:saturate(1.08) contrast(1.05);
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;z-index:1;
+  background:var(--hero-overlay);
+}
+.hero-inner{position:relative;z-index:2;padding:64px 0}
+.hero-copy{max-width:720px}
+
+.hero-left{
+  --hero-overlay:linear-gradient(90deg,rgba(11,18,32,.82),rgba(11,18,32,.32) 55%,rgba(11,18,32,.1));
+}
+.hero-right{
+  --hero-overlay:linear-gradient(270deg,rgba(11,18,32,.82),rgba(11,18,32,.32) 55%,rgba(11,18,32,.1));
+}
+.hero-center{
+  --hero-overlay:linear-gradient(180deg,rgba(11,18,32,.82),rgba(11,18,32,.32) 55%,rgba(11,18,32,.1));
+}
+.hero-left .hero-copy{margin-right:auto}
+.hero-right .hero-copy{margin-left:auto}
+.hero-center .hero-copy{margin:0 auto}
+
+.kicker{
+  display:inline-block;
+  color:#fff;font-weight:800;font-size:13px;
+  background:rgba(255,255,255,.12);
+  padding:6px 12px;border-radius:999px;
+}
+h1{
+  color:#fff;
+  font-size:44px;
+  line-height:1.15;
+  margin:14px 0;
+}
+.hero p{color:rgba(255,255,255,.88);max-width:60ch}
+.hero-cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+
+.metrics{
+  margin-top:24px;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;max-width:720px;
+}
+.metric{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;padding:14px;
+}
+.metric strong{color:#fff;font-size:22px}
+.metric span{color:rgba(255,255,255,.75);font-size:12px}
+
+/* ===== SECTIONS ===== */
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+h2{font-size:28px;margin-bottom:12px}
+p{color:var(--muted)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.card h3{margin-top:0}
+
+/* ===== GALLERY ===== */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.shot{overflow:hidden;border-radius:16px;border:1px solid var(--line)}
+.shot img{width:100%;height:240px;object-fit:cover}
+.cap{padding:10px 12px;font-size:13px;color:var(--muted)}
+
+/* ===== STEPS ===== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stepnum{
+  width:32px;height:32px;border-radius:50%;
+  background:#fff;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;
+}
+
+/* ===== FAQ ===== */
+details{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:10px;
+}
+summary{font-weight:900;cursor:pointer}
+
+/* ===== CONTACT ===== */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ===== FOOTER ===== */
+footer{padding:24px 0;font-size:13px;color:var(--muted)}
+
+/* ===== MOBILE ===== */
+@media(max-width:960px){
+  nav{display:none}
+  h1{font-size:34px}
+  .grid-3,.grid-2,.gallery,.steps,.contact,.metrics{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body class="hero-left">
+<script>
+const INSTAGRAM_URL="https://www.instagram.com/world_thrive_tv/";
+</script>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">WORLD THRIVE TV</div>
+    <nav>
+      <a href="#service">制作内容</a>
+      <a href="#cases">事例</a>
+      <a href="#flow">流れ</a>
+      <a href="#price">料金</a>
+      <a href="#contact">相談</a>
+    </nav>
+    <a class="btn ig-link" href="#">Instagramで相談</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <span class="kicker">ミュージックビデオ制作</span>
+      <h1>世界観を“映像”に落とし込む。<br>アーティストのためのMV制作</h1>
+      <p>ヒアリングから撮影・編集まで一貫対応。<br>
+      あなたの音楽に合う映像を一緒に作ります。</p>
+
+      <div class="hero-cta">
+        <a class="btn ig-link" href="#">Instagram</a>
+        <a class="btn" href="#cases" style="background:#fff;color:#111;border:1px solid #e6e8ee">制作事例を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service">
+  <div class="container">
+    <h2>企画制作内容</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>MV制作</h3>
+        <ul>
+          <li>企画・構成相談</li>
+          <li>撮影（ロケ / スタジオ）</li>
+          <li>編集 / カラーグレーディング</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>楽曲ジャケット作成</h3>
+        <ul>
+          <li>単品作成</li>
+          <li>サブスク月30作品程度</li>
+          <li>デザインのみ / 編集のみも対応</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="container">
+    <h2>制作事例</h2>
+    <div class="gallery">
+      <div class="shot">
+        <img src="image/CanDy - UNIQUEOUT NOW@candy8arashi @sixbeforethenine @oddy2a @buddha_come_in Artwork by me @reno (1).jpg" alt="unique candy">
+        <div class="cap">Artist： CANDY/ 大阪<br>Scope：撮影＋編集</div>
+      </div>
+      <div class="shot">
+        <img src="image/7-30 🪽🪽🪽.jpg"　 alt="CanDy MIKADO six">
+        <div class="cap">Artist： CanDy MIKADO six/ 奈良<br>Scope：撮影＋編集</div>
+      </div>
+      <div class="shot">
+        <img src="image/six　おおきに.jpg" alt="sixおおきに">
+        <div class="cap">Artist：SIX / 大阪<br>Scope：撮影＋編集</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+  <div class="container">
+    <h2>ご依頼の流れ</h2>
+    <div class="steps">
+      <div class="card"><div class="stepnum">1</div>InstagramでDM</div>
+      <div class="card"><div class="stepnum">2</div>ヒアリング</div>
+      <div class="card"><div class="stepnum">3</div>撮影・編集</div>
+      <div class="card"><div class="stepnum">4</div>納品</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="price">
+  <div class="container">
+    <h2>料金目安</h2>
+    <div class="grid-3">
+      <div class="card"><h3>ライト</h3><strong>¥60.000〜</strong></div>
+      <div class="card"><h3>スタンダード</h3><strong>¥100.000〜</strong></div>
+      <div class="card"><h3>プレミアム</h3><strong>要相談</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Instagramで相談</h2>
+    <div class="contact">
+      <div class="card">
+        <p>DMテンプレ（コピペOK）</p>
+<pre>
+【MV制作の相談】
+・アーティスト名：
+・楽曲URL：
+・希望の雰囲気：
+・撮影場所：
+・予算感：
+</pre>
+        <a class="btn ig-link" href="#">Instagramで相談する</a>
+      </div>
+      <div class="card">
+        <p>最新事例・映像はこちらからご覧下さい。</p>
+        <a class="btn ig-link" href="#">Instagramを見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">© worldthrive tv</div>
+</footer>
+</main>
+
+<script>
+document.querySelectorAll(".ig-link").forEach(el=>{
+  el.href=INSTAGRAM_URL;
+  el.target="_blank";
+});
+</script>
+
+</body>
+</html>
